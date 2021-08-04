@@ -19,3 +19,16 @@ php -S 127.0.0.1:8000
 ```
 
 Locate to `http://localhost:8000/` to see the server running locally. 
+
+
+**Sign Up Feature**
+
+![Sign Up Feature](https://raw.githubusercontent.com/farooqashar/loginmedia/readme_images/images/up.png)
+
+**Sign In Feature**
+
+![Sign In Feature](https://raw.githubusercontent.com/farooqashar/loginmedia/readme_images/images/in.png)
+
+**Example of MySQLi Database**
+
+![Example of MySQLi Database](https://raw.githubusercontent.com/farooqashar/loginmedia/readme_images/images/data.png)
