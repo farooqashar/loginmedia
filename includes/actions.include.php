@@ -1,19 +1,20 @@
-<?php 
+<?php
 
-function emptyInput($name,$email,$username,$password, $confirmpassword ) {
+function emptyInput($name, $email, $username, $password, $confirmpassword)
+{
 
     $result;
 
-    if(empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmpassword)) {
+    if (empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmpassword)) {
         $result = true;
     } else {
         $result = false;
     }
     return $result;
-
 }
 
-function invalidUsername($username) {
+function invalidUsername($username)
+{
     $result;
 
     if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
@@ -25,7 +26,8 @@ function invalidUsername($username) {
     return $result;
 }
 
-function invalidEmail($email) {
+function invalidEmail($email)
+{
 
     $result;
 
@@ -36,10 +38,10 @@ function invalidEmail($email) {
     }
 
     return $result;
-
 }
 
-function passwordMatch($password,$confirmpassword) {
+function passwordMatch($password, $confirmpassword)
+{
 
     $result;
 
@@ -50,40 +52,41 @@ function passwordMatch($password,$confirmpassword) {
     }
 
     return $result;
-
 }
 
-function usernameEmailExists($conn, $username, $email) {
+function usernameEmailExists($conn, $username, $email)
+{
 
     $sql = "SELECT * FROM users WHERE usersUserName = '$username' OR usersEmail = '$email';";
 
     $result = $conn->query($sql);
 
-    if ($result -> num_rows !== 0) {
+    if ($result->num_rows !== 0) {
         return mysqli_fetch_row($result);
     } else {
         return false;
     }
 
-    $conn -> close();
+    $conn->close();
 }
 
-function createUser($conn, $name, $email, $username, $password) {
+function createUser($conn, $name, $email, $username, $password)
+{
 
     $sql = "INSERT INTO users (usersName, usersEmail, usersUserName, usersPassword) VALUES (" . "'$name'" . ",'$email'" . ",'$username','$password');";
     echo $sql;
     $conn->query($sql);
 
-    $conn -> close();
+    $conn->close();
     header("location: ../signup.php?error=None");
     exit();
-
 }
 
-function emptyInputLogin($nameusername,$loginpassword) {
+function emptyInputLogin($nameusername, $loginpassword)
+{
     $result;
 
-    if(empty($nameusername) || empty($loginpassword)) {
+    if (empty($nameusername) || empty($loginpassword)) {
         $result = true;
     } else {
         $result = false;
@@ -91,14 +94,15 @@ function emptyInputLogin($nameusername,$loginpassword) {
     return $result;
 }
 
-function loginUser($conn, $nameusername, $loginpassword) {
+function loginUser($conn, $nameusername, $loginpassword)
+{
 
     $dataArray;
     $sql = "SELECT * FROM users WHERE usersUserName = '$nameusername' AND usersPassword = '$loginpassword';";
 
     $result = $conn->query($sql);
 
-    if ($result -> num_rows !== 0) {
+    if ($result->num_rows !== 0) {
         $dataArray = mysqli_fetch_row($result);
     } else {
         header("location: ../login_h.php?error=loginIncorrect");
