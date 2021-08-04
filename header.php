@@ -14,24 +14,6 @@
 
 <body>
 
-  <!-- <nav>
-
-    <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="about.php">About</a></li>
-
-      <?php
-      if (isset($_SESSION["userUserName"])) {
-        echo "<li><a href='profile.php'>Profile</a></li>";
-        echo "<li><a href='includes/logout.include.php'>Log Out</a></li>";
-      } else {
-        echo "<li><a href='signup.php'>Sign Up</a></li>";
-        echo "<li> <a href='login_h.php'>Log In</a></li>";
-      }
-      ?>
-    </ul>
-  </nav> -->
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Login System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,8 +45,6 @@
     </form>
   </div>
 </nav>
-
-
 
 </body>
 
