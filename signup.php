@@ -19,6 +19,32 @@ include_once 'header.php'
 
 <?php 
 
+ if (isset($_GET["error"])) {
+
+    if ($_GET["error"] == "emptyInput") {
+        echo "<p>Input cannot be empty.</p>";
+    } 
+    else if ($_GET["error"] == "invalidUsername") {
+        echo "<p>Username is invalid.</p>";
+    } 
+    else if ($_GET["error"] == "invalidEmail") {
+        echo "<p>Email is invalid.</p>";
+    } 
+    else if ($_GET["error"] == "passwordsDoNotMatch") {
+        echo "<p>Passwords do not match.</p>";
+    }
+    else if ($_GET["error"] == "usernameAlreadyExists") {
+        echo "<p>Username already exists. Try again. </p>";
+    }
+    else if ($_GET["error"] == "None") {
+        echo "<p>Sign Up Successful!</p>";
+    }
+ }
+
+?>
+
+<?php 
+
 include_once 'footer.php'
 
 ?>
