@@ -13,7 +13,7 @@
                 <a href="index.php">Home</a>
                 <a href="about.php">About</a>
                 <a href="signup.php">Sign Up</a>
-                <a href="login.php">Log In</a>
+                <a href="login_h.php">Log In</a>
             </li>
         </ul>
     </nav>
