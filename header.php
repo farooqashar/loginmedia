@@ -17,9 +17,8 @@
                 echo "<li><a href='profile.php'>Profile</a></li>";
                 echo "<li><a href='includes/logout.include.php'>Log Out</a></li>";
               } else {
-                echo "aa";
-                // echo "<li><a href='signup.php'>Sign Up</a></li>";
-                // echo "<li> <a href='login_h.php'>Log In</a></li>";
+                echo "<li><a href='signup.php'>Sign Up</a></li>";
+                echo "<li> <a href='login_h.php'>Log In</a></li>";
               }
             ?>
         </ul>

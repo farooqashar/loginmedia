@@ -11,14 +11,6 @@ if (isset($_POST["submit"])) {
     require_once 'db.include.php';
     require_once 'actions.include.php';
 
-    // print $name;
-    // print $email;
-    // print $username;
-    // print $password;
-    // print $confirmpassword;
-
-
-
     if (emptyInput($name,$email,$username,$password, $confirmpassword) !== false) {
         header("location: ../signup.php?error=emptyInput");
         exit();
@@ -40,9 +32,6 @@ if (isset($_POST["submit"])) {
     }
 
     if (usernameEmailExists($conn, $username, $email) !== false) {
-        // echo "da fuck";
-        // echo var_dump(get_object_vars(usernameEmailExists($conn, $username, $email)));
-        // header("location: ../signup.php?error=usernameAlreadyExists");
         exit();
     }
 

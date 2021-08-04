@@ -58,11 +58,6 @@ function usernameEmailExists($conn, $username, $email) {
     $sql = "SELECT * FROM users WHERE usersUserName = '$username' OR usersEmail = '$email';";
 
     $result = $conn->query($sql);
-    // echo var_dump(get_object_vars(usernameEmailExists($conn, $username, $email)));
-    // echo mysqli_fetch_assoc($result);
-    // echo $result -> $result[1];
-    // echo mysqli_num_rows($result);
-    // echo mysqli_fetch_row($result)[1];
 
     if ($result -> num_rows !== 0) {
         return mysqli_fetch_row($result);
@@ -71,27 +66,6 @@ function usernameEmailExists($conn, $username, $email) {
     }
 
     $conn -> close();
-
-    // $stmt = mysqli_stmt_init($conn);
-    // if (!mysql_stmt_prepare($stmt, $sql)) {
-    //     header("location: ../signup.php?error=stmtFailure");
-    //     exit();
-    // }
-
-    // mysqli_stmt_bind_param($stmt, "ss", $username, $email);
-    // mysqli_stmt_execute($stmt);
-    
-    // $results = mysqli_stmt_get_result($stmt);
-
-    // if ($row = mysqli_fetch_assoc($results)) {
-    //     return $row;
-
-    // } else {
-    //     $result = false;
-    //     return $result;
-    // }
-
-    // mysqli_stmt_close($stmt);
 }
 
 function createUser($conn, $name, $email, $username, $password) {
@@ -104,28 +78,6 @@ function createUser($conn, $name, $email, $username, $password) {
     header("location: ../signup.php?error=None");
     exit();
 
-    // if ($conn->query($sql) === TRUE) {
-    //     echo "New record created successfully";
-    //   } else {
-    //     echo "Error: " . $sql . "<br>" . $conn->error;
-    //   }
-
-    // $conn -> $sql;
-    // mysqli_query($conn, $sql);
-
-    // $conn -> query($sql);
-
-    // $stmt = mysqli_stmt_init($conn);
-    // if (!mysql_stmt_prepare($stmt, $sql)) {
-    //     header("location: ../signup.php?error=stmtFailure");
-    //     exit();
-    // }
-
-
-    // mysqli_stmt_bind_param($stmt, "ssss", $name, $email,$username, $hashedPassword);
-    // mysqli_stmt_execute($stmt);
-    
-    // mysqli_stmt_close($stmt);
 }
 
 function emptyInputLogin($nameusername,$loginpassword) {
@@ -160,36 +112,4 @@ function loginUser($conn, $nameusername, $loginpassword) {
 
     header("location: ../index.php?message=SUCCESSFULLOGIN");
     exit();
-
-
-
-
-    // $dataArray = mysqli_fetch_row($userNameExists);
-    // $dataArray = mysqli_fetch_row($userNameExists);
-    // echo $dataArray[2];
-    // exit();
-
-    // if ($userNameExists === false) {
-        // header("location: ../login_h.php?error=loginIncorrect");
-        // exit();
-    // }
-
-
-
-    // $passwordHashed = $dataArray[4];
-
-    // $checkPassword = password_verify($loginpassword, $passwordHashed);
-
-    // if ($checkPassword === false) {
-    //     header("location: ../login_h.php?error=loginIncorrect");
-    //     exit();
-    // } else if ($checkPassword === true) {
-        // session_start();
-
-        // $_SESSION["userId"] = $dataArray[0];
-        // $_SESSION["userUserName"] = $dataArray[3];
-        // header("location: ../index.php");
-        // exit();
-    // }
-
 }
