@@ -9,65 +9,42 @@ include_once 'header.php'
 <form action="includes/signup.include.php" method="post">
 
     <div class="form-group">
-    <label className="form-label" htmlFor="name">
-              Full Name:
-    </label>
-    <input 
-    rows="1"
-              cols="47"
-              required
-              class="form-control"
-              type="text" name="name" placeholder="Enter Full Name Here">
+        <label className="form-label" htmlFor="name">
+            Full Name:
+        </label>
+        <input rows="1" cols="47" required class="form-control" type="text" name="name" placeholder="Enter Full Name Here">
     </div>
 
     <div class="form-group">
-    <label className="form-label" htmlFor="email">
-              Email:
-    </label>
-    <input  rows="1"
-              cols="47"
-              required
-              class="form-control"
-              type="text" name="email" placeholder="Enter Email Here">
+        <label className="form-label" htmlFor="email">
+            Email:
+        </label>
+        <input rows="1" cols="47" required class="form-control" type="text" name="email" placeholder="Enter Email Here">
     </div>
 
     <div class="form-group">
-    <label className="form-label" htmlFor="username">
-              Username:
-    </label>
-    <input 
-    rows="1"
-              cols="47"
-              required
-              class="form-control"
-              type="text" name="username" placeholder="Enter Username Here">
-    </div>
-    
-    <div class="form-group">
-    <label className="form-label" htmlFor="password">
-              Password:
-    </label>
-    <input rows="1"
-              cols="47"
-              required
-              class="form-control"
-              type="password" name="password" placeholder="Enter Password Here">
+        <label className="form-label" htmlFor="username">
+            Username:
+        </label>
+        <input rows="1" cols="47" required class="form-control" type="text" name="username" placeholder="Enter Username Here">
     </div>
 
     <div class="form-group">
-    <label className="form-label" htmlFor="confirmpassword">
-              Repeat Password:
-    </label>
-    <input rows="1"
-              cols="47"
-              required
-              class="form-control"
-              type="password" name="confirmpassword" placeholder="Enter Password Again">
+        <label className="form-label" htmlFor="password">
+            Password:
+        </label>
+        <input rows="1" cols="47" required class="form-control" type="password" name="password" placeholder="Enter Password Here">
     </div>
 
     <div class="form-group">
-    <button class="btn btn-primary"
- type="submit" name="submit">Sign Up</button>
+        <label className="form-label" htmlFor="confirmpassword">
+            Repeat Password:
+        </label>
+        <input rows="1" cols="47" required class="form-control" type="password" name="confirmpassword" placeholder="Enter Password Again">
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit" name="submit">Sign Up</button>
     </div>
 
 </form>
@@ -92,7 +69,6 @@ if (isset($_GET["error"])) {
             </div>
             </div>
         ";
-
     } else if ($_GET["error"] == "invalidUsername") {
         echo "<strong><p style='color:blue;'>Username is invalid.</p></strong>";
     } else if ($_GET["error"] == "invalidEmail") {
