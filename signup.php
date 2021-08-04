@@ -66,7 +66,8 @@ include_once 'header.php'
     </div>
 
     <div class="form-group">
-    <button type="submit" name="submit">Sign Up</button>
+    <button class="btn btn-primary"
+ type="submit" name="submit">Sign Up</button>
     </div>
 
 </form>
