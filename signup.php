@@ -12,35 +12,57 @@ include_once 'header.php'
     <label className="form-label" htmlFor="name">
               Full Name:
     </label>
-    <input type="text" name="name" placeholder="Enter Full Name Here">
+    <input 
+    rows="1"
+              cols="47"
+              required
+              class="form-control"
+              type="text" name="name" placeholder="Enter Full Name Here">
     </div>
 
     <div class="form-group">
     <label className="form-label" htmlFor="email">
               Email:
     </label>
-    <input type="text" name="email" placeholder="Enter Email Here">
+    <input  rows="1"
+              cols="47"
+              required
+              class="form-control"
+              type="text" name="email" placeholder="Enter Email Here">
     </div>
 
     <div class="form-group">
     <label className="form-label" htmlFor="username">
               Username:
     </label>
-    <input type="text" name="username" placeholder="Enter Username Here">
+    <input 
+    rows="1"
+              cols="47"
+              required
+              class="form-control"
+              type="text" name="username" placeholder="Enter Username Here">
     </div>
     
     <div class="form-group">
     <label className="form-label" htmlFor="password">
               Password:
     </label>
-    <input type="password" name="password" placeholder="Enter Password Here">
+    <input rows="1"
+              cols="47"
+              required
+              class="form-control"
+              type="password" name="password" placeholder="Enter Password Here">
     </div>
 
     <div class="form-group">
     <label className="form-label" htmlFor="confirmpassword">
               Repeat Password:
     </label>
-    <input type="password" name="confirmpassword" placeholder="Enter Password Again">
+    <input rows="1"
+              cols="47"
+              required
+              class="form-control"
+              type="password" name="confirmpassword" placeholder="Enter Password Again">
     </div>
 
     <div class="form-group">
