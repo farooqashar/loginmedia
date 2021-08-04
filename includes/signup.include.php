@@ -30,7 +30,7 @@ if (isset($_POST["submit"])) {
     }
 
     if (invalidEmail($email) !== false) {
-        header("location: ../signup.php?error=invalidUsername");
+        header("location: ../signup.php?error=invalidEmail");
         exit();
     }
 

@@ -55,48 +55,72 @@ function passwordMatch($password,$confirmpassword) {
 
 function usernameEmailExists($conn, $username, $email) {
 
-    $sql = "SELECT * FROM users WHERE usersUserName = ? OR usersEmail = ?;";
+    $sql = "SELECT * FROM users WHERE usersUserName = '$username' OR usersEmail = '$email';";
 
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysql_stmt_prepare($stmt, $sql)) {
-        header("location: ../signup.php?error=stmtFailure");
-        exit();
-    }
+    $result = $conn->query($sql);
 
-    mysqli_stmt_bind_param($stmt, "ss", $username, $email);
-    mysqli_stmt_execute($stmt);
-    
-    $results = mysqli_stmt_get_result($stmt);
-
-    if ($row = mysqli_fetch_assoc($results)) {
-        return $row;
-
-    } else {
-        $result = false;
+    if (!empty($result)) {
         return $result;
+    } else {
+        return false;
     }
 
-    mysqli_stmt_close($stmt);
+    $conn -> close();
+
+    // $stmt = mysqli_stmt_init($conn);
+    // if (!mysql_stmt_prepare($stmt, $sql)) {
+    //     header("location: ../signup.php?error=stmtFailure");
+    //     exit();
+    // }
+
+    // mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+    // mysqli_stmt_execute($stmt);
+    
+    // $results = mysqli_stmt_get_result($stmt);
+
+    // if ($row = mysqli_fetch_assoc($results)) {
+    //     return $row;
+
+    // } else {
+    //     $result = false;
+    //     return $result;
+    // }
+
+    // mysqli_stmt_close($stmt);
 }
 
 function createUser($conn, $name, $email, $username, $password) {
 
-
-    $sql = "INSERT INTO users (usersName, usersEmail, usersUserName, usersPassword) VALUES (?,?,?,?);";
-
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysql_stmt_prepare($stmt, $sql)) {
-        header("location: ../signup.php?error=stmtFailure");
-        exit();
-    }
-
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssss", $name, $email,$username, $hashedPassword);
-    mysqli_stmt_execute($stmt);
-    
-    mysqli_stmt_close($stmt);
+    $sql = "INSERT INTO users (usersName, usersEmail, usersUserName, usersPassword) VALUES (" . "'$name'" . ",'$email'" . ",'$username','$hashedPassword');";
+    echo $sql;
+    $conn->query($sql);
 
+    $conn -> close();
     header("location: ../signup.php?error=None");
     exit();
+
+    // if ($conn->query($sql) === TRUE) {
+    //     echo "New record created successfully";
+    //   } else {
+    //     echo "Error: " . $sql . "<br>" . $conn->error;
+    //   }
+
+    // $conn -> $sql;
+    // mysqli_query($conn, $sql);
+
+    // $conn -> query($sql);
+
+    // $stmt = mysqli_stmt_init($conn);
+    // if (!mysql_stmt_prepare($stmt, $sql)) {
+    //     header("location: ../signup.php?error=stmtFailure");
+    //     exit();
+    // }
+
+
+    // mysqli_stmt_bind_param($stmt, "ssss", $name, $email,$username, $hashedPassword);
+    // mysqli_stmt_execute($stmt);
+    
+    // mysqli_stmt_close($stmt);
 }
