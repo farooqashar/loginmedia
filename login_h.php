@@ -8,7 +8,7 @@ include_once 'header.php'
 
 <form action="includes/login.include.php" method="POST">
 
-    <div>
+    <div class="form-group">
     <label className="form-label" htmlFor="nameusername">
               Email/Username:
     </label>
@@ -20,7 +20,7 @@ include_once 'header.php'
 
         </div>
 
-<div>
+<div class="form-group">
 <label className="form-label" htmlFor="nameusername">
               Password:
     </label>
@@ -31,7 +31,9 @@ include_once 'header.php'
               type="password" name="loginpassword" placeholder="Enter Password Here">
 </div>
 
+    <div class="form-group">
     <button type="submit" name="submit">Sign In</button>
+</div>
 
 </form>
 
