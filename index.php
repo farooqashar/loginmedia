@@ -14,7 +14,7 @@ if (isset($_SESSION["userUserName"])) {
 
 if (isset($_GET["message"])) {
     if ($_GET["message"] == "SUCCESSFULLOGIN") {
-        echo "<p>Login Successful!</p>";
+        echo "<br /> <br /> <center><strong><h3 style='color:blue;'>Login Successful!</h3></strong></center>";
     }
 }
 ?>

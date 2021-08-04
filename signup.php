@@ -77,17 +77,34 @@ include_once 'header.php'
 if (isset($_GET["error"])) {
 
     if ($_GET["error"] == "emptyInput") {
-        echo "<p>Input cannot be empty.</p>";
+
+        echo "
+                <div class='toast' role='alert' aria-live='assertive' aria-atomic='true'>
+            <div class='toast-header'>
+                <strong class='mr-auto'>Error</strong>
+                <small>Login Issue</small>
+                <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>
+            <div class='toast-body'>
+                Input cannot be empty.
+            </div>
+            </div>
+        ";
+
     } else if ($_GET["error"] == "invalidUsername") {
-        echo "<p>Username is invalid.</p>";
+        echo "<strong><p style='color:blue;'>Username is invalid.</p></strong>";
     } else if ($_GET["error"] == "invalidEmail") {
-        echo "<p>Email is invalid.</p>";
+        echo "<strong><p style='color:blue;'>Email is invalid.</p></strong>";
     } else if ($_GET["error"] == "passwordsDoNotMatch") {
-        echo "<p>Passwords do not match.</p>";
+        echo "<strong><p style='color:blue;'> Passwords do not match.</p></strong>";
     } else if ($_GET["error"] == "usernameAlreadyExists") {
-        echo "<p>Username already exists. Try again. </p>";
+        echo "<strong><p style='color:blue;'> Username already exists. Try again. </p></strong>";
     } else if ($_GET["error"] == "None") {
-        echo "<p>Sign Up Successful!</p>";
+        echo "
+               <strong><p style='color:blue;'> Sign Up Successful!</p></strong>
+        ";
     }
 }
 
