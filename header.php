@@ -9,12 +9,19 @@
     <nav>
 
         <ul>
-            <li>
-                <a href="index.php">Home</a>
-                <a href="about.php">About</a>
-                <a href="signup.php">Sign Up</a>
-                <a href="login_h.php">Log In</a>
-            </li>
+            <li><a href="index.php">Home</a></li>
+              <li><a href="about.php">About</a></li>
+
+            <?php 
+              if (isset($_SESSION["userUserName"])) {
+                echo "<li><a href='profile.php'>Profile</a></li>";
+                echo "<li><a href='includes/logout.include.php'>Log Out</a></li>";
+              } else {
+                echo "aa";
+                // echo "<li><a href='signup.php'>Sign Up</a></li>";
+                // echo "<li> <a href='login_h.php'>Log In</a></li>";
+              }
+            ?>
         </ul>
     </nav>
   </body>

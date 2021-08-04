@@ -58,9 +58,14 @@ function usernameEmailExists($conn, $username, $email) {
     $sql = "SELECT * FROM users WHERE usersUserName = '$username' OR usersEmail = '$email';";
 
     $result = $conn->query($sql);
+    // echo var_dump(get_object_vars(usernameEmailExists($conn, $username, $email)));
+    // echo mysqli_fetch_assoc($result);
+    // echo $result -> $result[1];
+    // echo mysqli_num_rows($result);
+    // echo mysqli_fetch_row($result)[1];
 
-    if (!empty($result)) {
-        return $result;
+    if ($result -> num_rows !== 0) {
+        return mysqli_fetch_row($result);
     } else {
         return false;
     }
@@ -91,9 +96,7 @@ function usernameEmailExists($conn, $username, $email) {
 
 function createUser($conn, $name, $email, $username, $password) {
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO users (usersName, usersEmail, usersUserName, usersPassword) VALUES (" . "'$name'" . ",'$email'" . ",'$username','$hashedPassword');";
+    $sql = "INSERT INTO users (usersName, usersEmail, usersUserName, usersPassword) VALUES (" . "'$name'" . ",'$email'" . ",'$username','$password');";
     echo $sql;
     $conn->query($sql);
 
@@ -123,4 +126,70 @@ function createUser($conn, $name, $email, $username, $password) {
     // mysqli_stmt_execute($stmt);
     
     // mysqli_stmt_close($stmt);
+}
+
+function emptyInputLogin($nameusername,$loginpassword) {
+    $result;
+
+    if(empty($nameusername) || empty($loginpassword)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function loginUser($conn, $nameusername, $loginpassword) {
+
+    $dataArray;
+    $sql = "SELECT * FROM users WHERE usersUserName = '$nameusername' AND usersPassword = '$loginpassword';";
+
+    $result = $conn->query($sql);
+
+    if ($result -> num_rows !== 0) {
+        $dataArray = mysqli_fetch_row($result);
+    } else {
+        header("location: ../login_h.php?error=loginIncorrect");
+        exit();
+    }
+
+    session_start();
+
+    $_SESSION["userId"] = $dataArray[0];
+    $_SESSION["userUserName"] = $dataArray[3];
+
+    header("location: ../index.php?message=SUCCESSFULLOGIN");
+    exit();
+
+
+
+
+    // $dataArray = mysqli_fetch_row($userNameExists);
+    // $dataArray = mysqli_fetch_row($userNameExists);
+    // echo $dataArray[2];
+    // exit();
+
+    // if ($userNameExists === false) {
+        // header("location: ../login_h.php?error=loginIncorrect");
+        // exit();
+    // }
+
+
+
+    // $passwordHashed = $dataArray[4];
+
+    // $checkPassword = password_verify($loginpassword, $passwordHashed);
+
+    // if ($checkPassword === false) {
+    //     header("location: ../login_h.php?error=loginIncorrect");
+    //     exit();
+    // } else if ($checkPassword === true) {
+        // session_start();
+
+        // $_SESSION["userId"] = $dataArray[0];
+        // $_SESSION["userUserName"] = $dataArray[3];
+        // header("location: ../index.php");
+        // exit();
+    // }
+
 }

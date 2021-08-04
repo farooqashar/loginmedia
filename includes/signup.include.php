@@ -40,7 +40,9 @@ if (isset($_POST["submit"])) {
     }
 
     if (usernameEmailExists($conn, $username, $email) !== false) {
-        header("location: ../signup.php?error=usernameAlreadyExists");
+        // echo "da fuck";
+        // echo var_dump(get_object_vars(usernameEmailExists($conn, $username, $email)));
+        // header("location: ../signup.php?error=usernameAlreadyExists");
         exit();
     }
 
