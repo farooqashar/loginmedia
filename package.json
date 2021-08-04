@@ -1,0 +1,19 @@
+{
+  "name": "login",
+  "version": "1.0.0",
+  "description": "Login System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farooqashar/loginmedia.git"
+  },
+  "author": "Ashar Farooq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farooqashar/loginmedia/issues"
+  },
+  "homepage": "https://github.com/farooqashar/loginmedia#readme"
+}
